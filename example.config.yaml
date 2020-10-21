@@ -1,4 +1,17 @@
-api:
+apis:
   discord:
-    client_id:    'Bot Client ID goes Here'
-    secret_token: 'Bot Secret Token Goes Here'
+    client_id:    ''
+    secret_token: ''
+
+bot:
+  senpai:
+    identifier: 157716495852371970
+  storage: './storage/'
+  version: 'v0.0.1'
+
+messages:
+  commands:
+    hello_world:  'Konnichiwa, Senpai.'
+    laughatshi:   'https://media3.giphy.com/media/h2HTvVuKVS4daQaVuS/giphy.gif'
+    logchannel:   'Your logging channel has been set to: '
+    shutdown:     'Oyasuminasai, Senpai'
