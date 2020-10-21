@@ -5,11 +5,7 @@ module AddRival
 
   def self.process(event)
     return unless CONFIG['bot']['senpai']['identifier'] == event.user.id
-
-    # this breaks the command into three sections, the user id should be
-    # command[2]
     users = event.message.mentions
-
     directory = CONFIG['bot']['storage'] + event.server.id.to_s + '/users/'
     file = directory + 'rivals.txt'
 
@@ -20,7 +16,5 @@ module AddRival
     end
 
     Logging.logrival(event)
-
   end
-
 end

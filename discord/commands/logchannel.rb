@@ -11,7 +11,6 @@ module LogChannel
     message = CONFIG['messages']['commands']['logchannel'] + channel_name
 
     File.write(file, command[2])
-
     YANDERE.send_message( \
       event.channel.id,   \
       message             \
