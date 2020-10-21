@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'discordrb'
+#require 'IO'
 require 'json'
 require 'securerandom'
 require 'yaml'
