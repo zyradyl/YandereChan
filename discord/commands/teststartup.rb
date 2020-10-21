@@ -1,6 +1,7 @@
 module TestStartup
 
   def self.process(event)
+    return unless CONFIG['bot']['senpai']['identifier'] == event.user.id
     storage = CONFIG['bot']['storage']
 
     Dir.each_child(storage).each do |d|

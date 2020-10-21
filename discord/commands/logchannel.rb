@@ -1,7 +1,7 @@
 module LogChannel
 
   def self.process(event)
-    return unless CONFIG['bot']['senpai']['identifier'].include?(event.user.id)
+    return unless CONFIG['bot']['senpai']['identifier'] == event.user.id
 
     # this breaks the command into three sections, the channel id should be
     # command[2]

@@ -1,12 +1,12 @@
 require 'rubygems'
 require 'discordrb'
-#require 'IO'
 require 'json'
 require 'securerandom'
 require 'yaml'
 require 'yaml/store'
 require './discord/commands'
 require './discord/management'
+require './discord/management/logging'
 
 # Load configuration file into a constant
 CONFIG = YAML.load_file('config.yaml')

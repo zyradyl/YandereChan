@@ -1,3 +1,4 @@
+require './discord/commands/addrival'
 require './discord/commands/hello'
 require './discord/commands/initialize'
 require './discord/commands/laughatshi'
@@ -7,6 +8,7 @@ require './discord/commands/shutdown'
 require './discord/commands/teststartup'
 
 module CommandHandler
+  include AddRival
   include HelloWorld
   include Initialize
   include LaughAtShi
@@ -14,6 +16,10 @@ module CommandHandler
   include Shutdown
   include TestStartup
   extend Discordrb::Commands::CommandContainer
+
+  command(:addrival, help_available: false) do |event|
+    AddRival.process(event)
+  end
 
   command(:hello, help_available: false) do |event|
     HelloWorld.process(event)
