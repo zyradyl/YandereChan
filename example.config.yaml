@@ -1,0 +1,4 @@
+api:
+  discord:
+    client_id:    'Bot Client ID goes Here'
+    secret_token: 'Bot Secret Token Goes Here'
