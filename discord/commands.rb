@@ -1,4 +1,5 @@
 require './discord/commands/addrival'
+require './discord/commands/broadcast'
 require './discord/commands/hello'
 require './discord/commands/initialize'
 require './discord/commands/laughatshi'
@@ -20,6 +21,10 @@ module CommandHandler
   command(:addrival, help_available: false) do |event|
     AddRival.process(event)
   end
+
+  #command(:broadcast, help_available: false) do |event|
+  #  Broadcasts.process(event)
+  #end
 
   command(:hello, help_available: false) do |event|
     HelloWorld.process(event)
