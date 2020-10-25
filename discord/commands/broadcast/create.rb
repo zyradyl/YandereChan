@@ -61,9 +61,8 @@ module BroadcastCreate
           creation_step = 4
           false
         when 4
-          broadcast_event.respond 'Creating new broadcast'
+          broadcast_event.respond 'Creating new broadcast...'
           final = YANDERE.send_message(channel, "", false, embed)
-          YANDERE.send_message(event.channel.id, final.id.to_s + ' ' + final.channel.server.id.to_s)
           self.store(final, embed.title, embed.description, embed.color)
         end
       end

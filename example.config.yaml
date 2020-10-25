@@ -4,8 +4,7 @@ apis:
     secret_token: ''
 
 bot:
-  senpai:
-    identifier: 157716495852371970
+  senpai:  000000
   storage: './storage/'
   version: 'v0.0.1'
 
