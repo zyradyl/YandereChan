@@ -4,15 +4,16 @@ module BroadcastCreate
     creation_step = 0
     channel       = 0
     embed         = Discordrb::Webhooks::Embed.new
+
     embed.footer  = Discordrb::Webhooks::EmbedFooter.new( \
-      text: 'YandereChan' + CONFIG['bot']['version'],     \
+      text: 'YandereChan ' + CONFIG['bot']['version'],     \
       icon_url: YANDERE.profile.avatar_url                \
     )
 
     event.user.await(:broadcast) do |broadcast_event|
 
       if broadcast_event.message.content.to_s == 'cancel'
-        broadcast_event.respond 'you win!'
+        broadcast_event.respond 'aborting broadcast creation.'
       else
         case creation_step
         when 0
@@ -41,21 +42,29 @@ module BroadcastCreate
             broadcast_event.channel.id,                                 \
             "Hai, the description is now " + embed.description + "\n" + \
             "\n" +                                                      \
-            "What should the color of the broadcast be?\n"              \
+            "What should the color of the broadcast be?\n" +            \
+            "***Note:*** *For the initial version of this command, " +  \
+            "please use hex color codes without the #, " +              \
+            "so for example, red would be FF0000.*"                     \
           )
           creation_step = 3
           false
         when 3
-          embed.colour = 0xFF0000
+          color = '0x' + broadcast_event.message.content.to_s
+          embed.colour = color.hex
           YANDERE.send_message(                                           \
             broadcast_event.channel.id,                                   \
             "Hai, the color is going to be " + embed.colour.to_s + "\n" + \
             "\n" +                                                        \
-            "send any message to complete.\n"                             \
+            "type done to complete your broadcast.\n"                     \
           )
-          broadcast_event.respond 'making menu.... (ignoring ur color)'
-          YANDERE.send_message(channel, "", false, embed)
-          true
+          creation_step = 4
+          false
+        when 4
+          broadcast_event.respond 'Creating new broadcast'
+          final = YANDERE.send_message(channel, "", false, embed)
+          YANDERE.send_message(event.channel.id, final.id.to_s + ' ' + final.channel.server.id.to_s)
+          self.store(final, embed.title, embed.description, embed.color)
         end
       end
     end
@@ -68,5 +77,17 @@ module BroadcastCreate
       "What channel would you like the broadcast to be posted in?\n" +                                              \
       "***Note:*** *For the initial version of this command, please only use the Channel ID.*"                      \
     )
+
+  end
+
+  def self.store(message, title, desc, color)
+    directory = CONFIG['bot']['storage'] + message.channel.server.id.to_s + '/broadcasts/'
+    file = directory + message.id.to_s + '.yaml'
+    broadcast = {}
+    broadcast['channel'] = message.channel.id
+    broadcast['title'] = title
+    broadcast['description'] = desc
+    broadcast['color'] = color
+    File.open(file, 'w') { |f| YAML.dump(broadcast, f) }
   end
 end
