@@ -1,6 +1,6 @@
 require './discord/management/logging'
 
-module AddRival
+module RivalsAdd
   include Logging
 
   def self.process(event)

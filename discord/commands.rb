@@ -1,57 +1,35 @@
-require './discord/commands/addrival'
-require './discord/commands/broadcast'
-require './discord/commands/hello'
-require './discord/commands/initialize'
-require './discord/commands/laughatshi'
+require './discord/commands/broadcasts'
+require './discord/commands/internal'
 require './discord/commands/logchannel'
-require './discord/commands/servers'
-require './discord/commands/shutdown'
-require './discord/commands/teststartup'
+require './discord/commands/rivals'
+require './discord/commands/test'
 
 module CommandHandler
-  include AddRival
-  include HelloWorld
-  include Initialize
-  include LaughAtShi
+  include Broadcasts
+  include Internal
   include LogChannel
-  include Shutdown
-  include TestStartup
+  include Rivals
+  include Test
   extend Discordrb::Commands::CommandContainer
 
-  command(:addrival, help_available: false) do |event|
-    AddRival.process(event)
+  command(:broadcast, help_available: false) do |event|
+    Broadcasts.process(event)
   end
 
-  #command(:broadcast, help_available: false) do |event|
-  #  Broadcasts.process(event)
-  #end
-
-  command(:hello, help_available: false) do |event|
-    HelloWorld.process(event)
-  end
-
-  command(:initialize, help_available: false) do |event|
-    Initialize.process(event)
-  end
-
-  command(:laughatshi, help_available: false) do |event|
-    LaughAtShi.process(event)
+  command(:internal, help_available: false) do |event|
+    Internal.process(event)
   end
 
   command(:logchannel, help_available: false) do |event|
     LogChannel.process(event)
   end
 
-  command(:servers, help_available: false) do |event|
-    Servers.process(event)
+  command(:rivals, help_available: false) do |event|
+    Rivals.process(event)
   end
 
-  command(:shutdown, help_available: false) do |event|
-    Shutdown.process(event)
-  end
-
-  command(:teststartup, help_available: false) do |event|
-    TestStartup.process(event)
+  command(:test, help_available: false) do |event|
+    Test.process(event)
   end
 
 end
