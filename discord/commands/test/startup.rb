@@ -1,7 +1,10 @@
+require './discord/utilities/checkpermissions'
+
 module TestStartup
+  include CheckPermissions
 
   def self.process(event)
-    return unless CONFIG['bot']['senpai']['identifier'] == event.user.id
+    return unless CheckPermissions.process(event) == 1
     storage = CONFIG['bot']['storage']
 
     Dir.each_child(storage).each do |d|

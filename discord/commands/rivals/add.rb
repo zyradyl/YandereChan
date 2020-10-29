@@ -4,7 +4,7 @@ module RivalsAdd
   include Logging
 
   def self.process(event)
-    return unless CONFIG['bot']['senpai']['identifier'] == event.user.id
+    return unless CONFIG['bot']['senpai'] == event.user.id
     users = event.message.mentions
     directory = CONFIG['bot']['storage'] + event.server.id.to_s + '/users/'
     file = directory + 'rivals.txt'

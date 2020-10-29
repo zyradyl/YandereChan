@@ -14,6 +14,8 @@ module Internal
     case command[2]
     when 'initialize'
       Initialize.process(event)
+    when 'laughatshi'
+      LaughAtShi.process(event)
     when 'servers'
       Servers.process(event)
     when 'shutdown'
