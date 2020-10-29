@@ -10,6 +10,5 @@ module Rivals
     when 'add'
       RivalsAdd.process(event)
     end
-
   end
 end

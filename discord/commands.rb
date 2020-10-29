@@ -31,5 +31,4 @@ module CommandHandler
   command(:test, help_available: false) do |event|
     Test.process(event)
   end
-
 end

@@ -1,6 +1,5 @@
 require './discord/commands/test/hello'
 
-
 module Test
   include HelloWorld
 
@@ -11,6 +10,5 @@ module Test
     when 'helloworld'
       HelloWorld.process(event)
     end
-
   end
 end

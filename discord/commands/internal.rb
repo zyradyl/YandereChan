@@ -2,7 +2,6 @@ require './discord/commands/internal/initialize'
 require './discord/commands/internal/servers'
 require './discord/commands/internal/shutdown'
 
-
 module Internal
   include Initialize
   include Servers
@@ -21,6 +20,5 @@ module Internal
     when 'shutdown'
       Shutdown.process(event)
     end
-
   end
 end

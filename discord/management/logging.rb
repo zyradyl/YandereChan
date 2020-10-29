@@ -12,5 +12,4 @@ module Logging
   def self.startup(event)
     StartupMessage.send(event)
   end
-
 end

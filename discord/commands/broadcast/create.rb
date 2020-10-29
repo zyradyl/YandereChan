@@ -16,7 +16,6 @@ module BroadcastCreate
     )
 
     event.user.await(:broadcast) do |broadcast_event|
-
       if broadcast_event.message.content.to_s == 'cancel'
         broadcast_event.respond 'aborting broadcast creation.'
       else
@@ -25,7 +24,7 @@ module BroadcastCreate
           channel = broadcast_event.message.content.to_i
           YANDERE.send_message(                                                   \
             broadcast_event.channel.id,                                           \
-            "Hai, I will post the completed message in " + channel.to_s + "\n" +  \
+            'Hai, I will post the completed message in ' + channel.to_s + "\n" +  \
             "\n" +                                                                \
             "What should the title of the broadcast be?\n"                        \
           )
@@ -35,7 +34,7 @@ module BroadcastCreate
           embed.title = broadcast_event.message.content.to_s
           YANDERE.send_message(                                     \
             broadcast_event.channel.id,                             \
-            "Hai, your title is now set to " + embed.title + "\n" + \
+            'Hai, your title is now set to ' + embed.title + "\n" + \
             "\n" +                                                  \
             "What should the description of the broadcast be?\n"    \
           )
@@ -45,12 +44,12 @@ module BroadcastCreate
           embed.description = broadcast_event.message.content.to_s
           YANDERE.send_message(                                         \
             broadcast_event.channel.id,                                 \
-            "Hai, the description is now " + embed.description + "\n" + \
+            'Hai, the description is now ' + embed.description + "\n" + \
             "\n" +                                                      \
             "What should the color of the broadcast be?\n" +            \
-            "***Note:*** *For the initial version of this command, " +  \
-            "please use hex color codes without the #, " +              \
-            "so for example, red would be FF0000.*"                     \
+            '***Note:*** *For the initial version of this command, ' +  \
+            'please use hex color codes without the #, ' +              \
+            'so for example, red would be FF0000.*'                     \
           )
           creation_step = 3
           false
@@ -59,7 +58,7 @@ module BroadcastCreate
           embed.colour = color.hex
           YANDERE.send_message(                                           \
             broadcast_event.channel.id,                                   \
-            "Hai, the color is going to be " + embed.colour.to_s + "\n" + \
+            'Hai, the color is going to be ' + embed.colour.to_s + "\n" + \
             "\n" +                                                        \
             "type done to complete your broadcast.\n"                     \
           )
@@ -67,8 +66,8 @@ module BroadcastCreate
           false
         when 4
           broadcast_event.respond 'Creating new broadcast...'
-          final = YANDERE.send_message(channel, "", false, embed)
-          self.store(final, embed.title, embed.description, embed.color)
+          final = YANDERE.send_message(channel, '', false, embed)
+          store(final, embed.title, embed.description, embed.color)
         end
       end
     end
@@ -79,9 +78,8 @@ module BroadcastCreate
       "Hai, initializing broadcast creation. If you get bored of me at any time you can type `cancel` to stop.\n" + \
       "\n" +                                                                                                        \
       "What channel would you like the broadcast to be posted in?\n" +                                              \
-      "***Note:*** *For the initial version of this command, please only use the Channel ID.*"                      \
+      '***Note:*** *For the initial version of this command, please only use the Channel ID.*'                      \
     )
-
   end
 
   def self.store(message, title, desc, color)

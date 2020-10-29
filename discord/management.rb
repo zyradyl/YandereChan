@@ -9,7 +9,6 @@ module ManagementFunctions
   # Detect when bot is online and ready
   ready do |event|
     Status.activate(event)
-    #Logging.startup(event)
+    # Logging.startup(event)
   end
-
 end

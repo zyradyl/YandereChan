@@ -1,6 +1,3 @@
 module BroadcastList
-
-  def self.process(event)
-  end
-  
+  def self.process(event); end
 end

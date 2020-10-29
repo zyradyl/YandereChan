@@ -14,6 +14,5 @@ module Broadcasts
     when 'destroy'
       BroadcastDestroy.process(event, command[3])
     end
-
   end
 end

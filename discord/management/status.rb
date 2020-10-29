@@ -1,6 +1,5 @@
 module Status
-
-  def self.activate(event)
+  def self.activate(_event)
     YANDERE.update_status(      \
       'online',                 \
       CONFIG['bot']['version'], \
@@ -10,5 +9,4 @@ module Status
       0                         \
     )
   end
-
 end
