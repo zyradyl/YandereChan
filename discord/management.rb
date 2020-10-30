@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require './discord/management/status'
 require './discord/management/logging'
 
+# functions to handle various discord events
 module ManagementFunctions
   include Status
   include Logging

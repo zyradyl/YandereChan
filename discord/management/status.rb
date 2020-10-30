@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Set Status
 module Status
   def self.activate(_event)
     YANDERE.update_status(      \

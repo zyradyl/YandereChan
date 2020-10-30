@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require './discord/commands/rivals/add'
 
+# Container for all commands pertaining to user privileges.
 module Rivals
   include RivalsAdd
 

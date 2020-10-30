@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require './discord/management/logging'
 
+# This allows Senpai to add new members to the rival group in a server.
 module RivalsAdd
   include Logging
 
@@ -7,11 +10,11 @@ module RivalsAdd
     return unless CONFIG['bot']['senpai'] == event.user.id
 
     users = event.message.mentions
-    directory = CONFIG['bot']['storage'] + event.server.id.to_s + '/users/'
-    file = directory + 'rivals.txt'
+    directory = "#{CONFIG['bot']['storage']}#{event.server.id}/users/"
+    file = "#{directory}rivals.txt"
 
     users.each do |user|
-      write = user.id.to_s + "\n"
+      write = "#{user.id}\n"
       pass = user.id.to_s
       File.open(file, 'a') { |f| f.write(write) }
     end

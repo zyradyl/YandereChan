@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require './discord/commands/broadcast/create'
 require './discord/commands/broadcast/destroy'
 
+# Container to handle all commands pertaining to Broadcasts (custom embeds)
 module Broadcasts
   include BroadcastCreate
   include BroadcastDestroy

@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 require './discord/commands/internal/initialize'
+require './discord/commands/internal/laughatshi'
 require './discord/commands/internal/servers'
 require './discord/commands/internal/shutdown'
 
+# Container to handle all internal commands.
 module Internal
   include Initialize
+  include LaughAtShi
   include Servers
   include Shutdown
 

@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
+# Output a notification when a new rival is added.
 module LogRival
   def self.send(event)
-    file = CONFIG['bot']['storage'] + '/' + event.server.id.to_s + '/logchannel.txt'
+    file = "#{CONFIG['bot']['storage']}/#{event.server.id}/logchannel.txt"
     logchannel = File.read(file)
     message(event, logchannel)
   end
 
   def self.message(event, logchannel)
     embed = Discordrb::Webhooks::Embed.new
-    senpai = '<@' + CONFIG['bot']['senpai']['identifier'].to_s + '>'
+    senpai = "<@#{CONFIG['bot']['senpai']}>"
     rivals = event.message.mentions
 
     embed.title = 'Rivals Added'

@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require './discord/utilities/checkpermissions'
 
+# Simple helloworld test to make sure most mechanics are still working after
+# major changes to the command handling code.
 module HelloWorld
   include CheckPermissions
 

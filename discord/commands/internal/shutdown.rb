@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Gracefully shutdown YandereChan, including disconnecting the Websocket.
 module Shutdown
   def self.process(event)
     return unless CONFIG['bot']['senpai'] == event.user.id

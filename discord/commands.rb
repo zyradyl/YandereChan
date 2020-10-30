@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require './discord/commands/broadcasts'
 require './discord/commands/internal'
 require './discord/commands/logchannel'
 require './discord/commands/rivals'
 require './discord/commands/test'
 
+# Primary command container
 module CommandHandler
   include Broadcasts
   include Internal
