@@ -18,7 +18,10 @@ module LogRival
     embed.description = 'Senpai has added rivals. These users now have access to administrative commands.'
     embed.timestamp = Time.at(event.timestamp)
     embed.thumbnail = Discordrb::Webhooks::EmbedThumbnail.new(url: 'https://media1.tenor.com/images/82a8b54bfa4bcc3e1209f50caf4b5835/tenor.gif?itemid=15762850')
-    embed.footer = Discordrb::Webhooks::EmbedFooter.new(text: 'YandereChan v0.0.1', icon_url: YANDERE.profile.avatar_url)
+    embed.footer = Discordrb::Webhooks::EmbedFooter.new( \
+      text: "YandereChan #{CONFIG['bot']['version']}",     \
+      icon_url: YANDERE.profile.avatar_url                \
+    )
     embed.add_field(name: 'Senpai ID', value: senpai)
     embed.add_field(name: 'Channel', value: event.channel.mention)
 

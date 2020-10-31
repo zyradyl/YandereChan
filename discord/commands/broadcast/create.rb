@@ -27,7 +27,7 @@ module BroadcastCreate
           channel = broadcast_event.message.content.to_i
           YANDERE.send_message(                                                   \
             broadcast_event.channel.id,                                           \
-            'Hai, I will post the completed message in ' + channel.to_s + "\n" \
+            "Hai, I will post the completed message in #{channel} \n" \
             "\n" \
             "What should the title of the broadcast be?\n"                        \
           )
@@ -37,7 +37,7 @@ module BroadcastCreate
           embed.title = broadcast_event.message.content.to_s
           YANDERE.send_message(                                     \
             broadcast_event.channel.id,                             \
-            'Hai, your title is now set to ' + embed.title + "\n" \
+            "Hai, your title is now set to #{embed.title}\n" \
             "\n" \
             "What should the description of the broadcast be?\n"    \
           )
@@ -47,7 +47,7 @@ module BroadcastCreate
           embed.description = broadcast_event.message.content.to_s
           YANDERE.send_message(                                         \
             broadcast_event.channel.id,                                 \
-            'Hai, the description is now ' + embed.description + "\n" \
+            "Hai, the description is now #{embed.description}\n" \
             "\n" \
             "What should the color of the broadcast be?\n" \
             '***Note:*** *For the initial version of this command, ' \
@@ -61,7 +61,7 @@ module BroadcastCreate
           embed.colour = color.hex
           YANDERE.send_message(                                           \
             broadcast_event.channel.id,                                   \
-            'Hai, the color is going to be ' + embed.colour.to_s + "\n" \
+            "Hai, the color is going to be #{embed.colour}\n" \
             "\n" \
             "type done to complete your broadcast.\n"                     \
           )
@@ -76,13 +76,7 @@ module BroadcastCreate
     end
 
     # This is the prompt for the broadcast creation process
-    YANDERE.send_message(                                                                                           \
-      event.channel.id,                                                                                             \
-      "Hai, initializing broadcast creation. If you get bored of me at any time you can type `cancel` to stop.\n" \
-      "\n" \
-      "What channel would you like the broadcast to be posted in?\n" \
-      '***Note:*** *For the initial version of this command, please only use the Channel ID.*'                      \
-    )
+    prompt(event)
   end
 
   def self.store(message, title, desc, color)
@@ -94,5 +88,15 @@ module BroadcastCreate
     broadcast['description'] = desc
     broadcast['color'] = color
     File.open(file, 'w') { |f| YAML.dump(broadcast, f) }
+  end
+
+  def self.prompt(event)
+    YANDERE.send_message(                                                                                           \
+      event.channel.id,                                                                                             \
+      "Hai, initializing broadcast creation. If you get bored of me at any time you can type `cancel` to stop.\n" \
+      "\n" \
+      "What channel would you like the broadcast to be posted in?\n" \
+      '***Note:*** *For the initial version of this command, please only use the Channel ID.*'                      \
+    )
   end
 end
