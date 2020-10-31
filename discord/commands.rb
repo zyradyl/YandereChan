@@ -3,7 +3,7 @@
 require './discord/commands/broadcasts'
 require './discord/commands/internal'
 require './discord/commands/logchannel'
-require './discord/commands/rivals'
+require './discord/commands/users'
 require './discord/commands/test'
 
 # Primary command container
@@ -11,7 +11,7 @@ module CommandHandler
   include Broadcasts
   include Internal
   include LogChannel
-  include Rivals
+  include Users
   include Test
   extend Discordrb::Commands::CommandContainer
 
@@ -27,8 +27,8 @@ module CommandHandler
     LogChannel.process(event)
   end
 
-  command(:rivals, help_available: false) do |event|
-    Rivals.process(event)
+  command(:users, help_available: false) do |event|
+    Users.process(event)
   end
 
   command(:test, help_available: false) do |event|

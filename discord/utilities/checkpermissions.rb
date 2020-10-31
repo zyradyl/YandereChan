@@ -3,14 +3,12 @@
 # Utility to easily check permissions with one function
 module CheckPermissions
   def self.process(event)
-    return 1 if event.user.id == CONFIG['bot']['senpai']
+    senpais = File.readlines("#{CONFIG['bot']['storage']}/#{event.server.id}/users/senpais.txt")
+    rivals = File.readlines("#{CONFIG['bot']['storage']}/#{event.server.id}/users/rivals.txt")
 
-    directory = "#{CONFIG['bot']['storage']}/#{event.server.id}/users/"
-    rivalsf = "#{directory}rivals.txt"
-    rivals = File.readlines(rivalsf)
-
-    return 1 if rivals.include?("#{event.user.id}\n")
-
-    0
+    return 0 if event.user.id == CONFIG['bot']['senpai']
+    return 1 if senpais.include?("#{event.user.id}\n")
+    return 2 if rivals.include?("#{event.user.id}\n")
+    return 401
   end
 end
