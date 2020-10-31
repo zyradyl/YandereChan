@@ -11,7 +11,7 @@ module UsersAdd
   def self.process(event, rank)
     case rank
     when 'senpai'
-      return unless CheckPermissions.process(event) == 0
+      return unless CheckPermissions.process(event) <= 1
 
       add_senpai(event)
     when 'rival'

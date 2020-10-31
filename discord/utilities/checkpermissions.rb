@@ -9,6 +9,7 @@ module CheckPermissions
     return 0 if event.user.id == CONFIG['bot']['senpai']
     return 1 if senpais.include?("#{event.user.id}\n")
     return 2 if rivals.include?("#{event.user.id}\n")
-    return 401
+
+    401
   end
 end
