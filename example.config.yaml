@@ -14,3 +14,31 @@ messages:
     laughatshi:   'https://media3.giphy.com/media/h2HTvVuKVS4daQaVuS/giphy.gif'
     logchannel:   'Your logging channel has been set to: '
     shutdown:     'Oyasuminasai, Senpai'
+
+logging:
+  general:
+    color: 0xf5b3bc
+  users:
+    add:
+      kouhai:
+        avoid:      "You can't run away from me, Senpai. Answer me. Yes or no?"
+        error:      'I asked you a question, Senpai. Yes or no? I can wait all day.'
+        title:      'You attempted to add... a... kouhai...?'
+        desc:       'd-did...did you mean to do that? a-answer...me.....yes o-or n-no...'
+        image:      'https://media1.tenor.com/images/2624ae5fa81f58c494ea861b77af4b42/tenor.gif?itemid=13451196'
+        yes:
+          title:    'NO!'
+          desc:     "I won't let you!"
+          image:    'https://media1.tenor.com/images/12c7210c22ee281fb3c54279d5a023df/tenor.gif?itemid=16465192'
+        no:
+          title:    "I didn't think so~"
+          desc:     "Of course you wouldn't do that to me, S-Senpai. Haha, I must have... I must have misunderstood... I'll cancel that command now."
+          image:    'https://media1.tenor.com/images/44e8fa985d5cf6795d23e5aaf5da7951/tenor.gif?itemid=17411593'
+      senpai:
+        title:      'Senpais Added'
+        desc:       "E-eto..w-watashi...eto..i've noticed...how cute...some..new people are...they can...use me however they'd like...hehe~"
+        thumbnail:  'https://media1.tenor.com/images/40368a6dd7e04dab53d5be850d0f50e2/tenor.gif?itemid=6203362'
+      rival:
+        title:      'Rivals Added'
+        desc:       "Y-you think..you think you can fucking take them from me?! You think I'll let you, that I-I'd let t-them...Daijobu. Daijobu. You can use basic commands. But I'll be watching you. You fucking kusottare."
+        thumbnail:  'https://media1.tenor.com/images/82a8b54bfa4bcc3e1209f50caf4b5835/tenor.gif?itemid=15762850'
