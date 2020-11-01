@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
-require './discord/management/logging/logrival'
+require './discord/management/logging/users'
 require './discord/management/logging/startup'
 
 # Container module for Logging functions
 module Logging
-  include LogRival
+  include UserLogging
   include StartupMessage
+
+  def self.users(event, function, task)
+    UserLogging.log(event, function, task)
+  end
 
   def self.logrival(event)
     LogRival.send(event)

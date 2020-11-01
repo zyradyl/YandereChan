@@ -35,9 +35,9 @@ module UsersList
     slist.title = 'Senpai Server Directory'
     slist.description = 'E-eto..eto..these are all my S-Senpais...d-daisuke~'
     slist.colour = 0xf5b3bc
-    slist.add_field(name: "Global Senpai", value: "<@#{CONFIG['bot']['senpai']}>")
+    slist.add_field(name: 'Global Senpai', value: "<@#{CONFIG['bot']['senpai']}>")
     senpais.each do |senpai|
-      slist.add_field(name: "Local Senpai", value: "<@#{senpai.delete("\n")}>", inline: true)
+      slist.add_field(name: 'Local Senpai', value: "<@#{senpai.delete("\n")}>", inline: true)
     end
     YANDERE.send_message(event.channel.id, '', false, slist)
   end
@@ -60,9 +60,9 @@ module UsersList
       rlist.thumbnail = Discordrb::Webhooks::EmbedThumbnail.new( \
         url: 'https://media1.tenor.com/images/82a8b54bfa4bcc3e1209f50caf4b5835/tenor.gif?itemid=15762850' \
       )
-      rlist.description = "These are all the...the...the...~~fucking maggots~~FRIENDS that my S-Senpais...h-have.."
+      rlist.description = 'These are all the...the...the...~~fucking maggots~~FRIENDS that my S-Senpais...h-have..'
       rivals.each do |rival|
-        rlist.add_field(name: "Rival", value: "<@#{rival.delete("\n")}>", inline: true)
+        rlist.add_field(name: 'Rival', value: "<@#{rival.delete("\n")}>", inline: true)
       end
     end
     YANDERE.send_message(event.channel.id, '', false, rlist)
