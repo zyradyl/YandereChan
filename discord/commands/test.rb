@@ -16,6 +16,8 @@ module Test
       HelloWorld.process(event)
     when 'startup'
       TestStartup.process(event)
+    else
+      event.respond("#{command[2]}")
     end
   end
 end

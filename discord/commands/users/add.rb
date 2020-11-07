@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Refactoring Passes: 1
 
 require './discord/management/logging'
 require './discord/utilities/checkpermissions'
@@ -72,15 +73,10 @@ module UsersAdd
   end
 
   def self.kouhai_embed
-    embed = Discordrb::Webhooks::Embed.new
-    embed.footer = Discordrb::Webhooks::EmbedFooter.new(
-      text: "YandereChan #{CONFIG['bot']['version']}",
-      icon_url: YANDERE.profile.avatar_url
-    )
-    embed.image = Discordrb::Webhooks::EmbedImage.new(url: CONFIG['logging']['users']['add']['kouhai']['image'])
-    embed.colour = CONFIG['logging']['general']['color']
+    embed = kouhai_response
     embed.title = CONFIG['logging']['users']['add']['kouhai']['title']
     embed.description = CONFIG['logging']['users']['add']['kouhai']['desc']
+    embed.image = Discordrb::Webhooks::EmbedImage.new(url: CONFIG['logging']['users']['add']['kouhai']['image'])
     embed
   end
 

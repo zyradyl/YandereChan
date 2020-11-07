@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Refactoring Passes: 1
 
 # handle logging for adding users
 module AddUserLogging

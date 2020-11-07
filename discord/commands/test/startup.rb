@@ -7,7 +7,7 @@ module TestStartup
   include CheckPermissions
 
   def self.process(event)
-    return unless CheckPermissions.process(event) == 1
+    return unless CheckPermissions.process(event) <= 1
 
     storage = CONFIG['bot']['storage']
 
