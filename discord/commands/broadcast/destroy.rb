@@ -7,7 +7,7 @@ module BroadcastDestroy
   include CheckPermissions
 
   def self.process(event, message)
-    return unless CheckPermissions.process(event) == 1
+    return unless CheckPermissions.process(event) <= 1
 
     directory = "#{CONFIG['bot']['storage']}#{event.server.id}/broadcasts/"
     file = "#{directory}#{message}.yaml"

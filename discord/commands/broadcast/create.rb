@@ -7,7 +7,7 @@ module BroadcastCreate
   include CheckPermissions
 
   def self.process(event)
-    return unless CheckPermissions.process(event) == 1
+    return unless CheckPermissions.process(event) <= 1
 
     creation_step = 0
     channel       = 0
